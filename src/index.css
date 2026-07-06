@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-canvas text-noir font-sans;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+    font-weight: 400;
+  }
+
+  ::selection {
+    background-color: #B8934A;
+    color: #181310;
+  }
+
+  :focus-visible {
+    outline: 2px solid #B8934A;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-6 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply font-sans text-[0.7rem] uppercase tracking-eyebrow font-semibold;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5
+           font-sans text-sm font-semibold tracking-wide transition-all duration-500 ease-editorial
+           disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-primary {
+    @apply btn bg-gold text-noir hover:bg-gold-bright;
+  }
+  .btn-primary-on-dark {
+    @apply btn bg-gold text-noir hover:bg-gold-bright;
+  }
+  .btn-ghost {
+    @apply btn border border-noir/20 text-noir hover:border-noir/40 hover:bg-noir/5;
+  }
+  .btn-ghost-on-dark {
+    @apply btn border border-canvas/25 text-canvas hover:border-canvas/50 hover:bg-canvas/10;
+  }
+
+  .link-cta {
+    @apply inline-flex items-center gap-3 font-sans text-sm font-semibold tracking-wide;
+  }
+  .link-cta__line {
+    @apply relative inline-block h-px w-8 bg-current overflow-hidden align-middle;
+  }
+
+  .hairline {
+    @apply border-noir/12;
+  }
+  .hairline-on-dark {
+    @apply border-canvas/15;
+  }
+
+  .field {
+    @apply w-full rounded-lg border border-noir/15 bg-transparent px-4 py-3 font-sans text-sm
+           text-noir placeholder:text-stone-400 transition-colors duration-300
+           focus:border-gold focus:outline-none;
+  }
+
+  .field-on-dark {
+    @apply w-full rounded-lg border border-canvas/20 bg-canvas/5 px-4 py-3 font-sans text-sm
+           text-canvas placeholder:text-canvas/40 transition-colors duration-300
+           focus:border-gold focus:outline-none;
+  }
+
+  /* Gold foil text, used sparingly for a single word of emphasis */
+  .text-foil {
+    @apply bg-gold-foil bg-clip-text text-transparent bg-[length:200%_100%] animate-shimmer;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .duotone {
+    filter: grayscale(0.55) sepia(0.22) saturate(1.15) brightness(0.96) contrast(1.03);
+    transition: filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .group:hover .duotone {
+    filter: grayscale(0) sepia(0) saturate(1) brightness(1) contrast(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: #EFE6D3;
+}
+::-webkit-scrollbar-thumb {
+  background: #C6BA9F;
+  border: 3px solid #EFE6D3;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9C8F76;
+}
